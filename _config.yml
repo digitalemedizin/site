@@ -2,8 +2,8 @@ title:             Digitale Medizin
 email:             info@digitale-medizin.net
 # description:       Wahlfachtrack Digitale Meidzin an 
 # author:            
-baseurl:           "/site"
-url:               "https://digitalemedizin.github.io"
+baseurl:           "/www"
+url:               "https://www.digitale-medizin.net"
 
 # Social Profiles
 # twitter_username:  SBootstrap
