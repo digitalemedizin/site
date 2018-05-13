@@ -2,7 +2,7 @@ title:             Digitale Medizin
 email:             info@digitale-medizin.net
 # description:       Wahlfachtrack Digitale Meidzin an 
 # author:            
-baseurl:           "/www"
+baseurl:           "/"
 url:               "https://www.digitale-medizin.net"
 
 # Social Profiles
