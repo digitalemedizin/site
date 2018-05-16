@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Posts
-background: '/img/bg-post.jpg'
+title: Beiträge
+background: '/img/Main_Day1_Healthcare_MOV8_Patient_v06.gif'
 ---
 
 {% for post in paginator.posts %}
@@ -15,13 +15,37 @@ background: '/img/bg-post.jpg'
       <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
       {% endif %}
     </a>
-    <p class="post-meta">Posted by
+    <p class="post-meta">
+      <!--
+      Posted by
       {% if post.author %}
         {{ post.author }}
       {% else %}
         {{ site.author }}
       {% endif %}
-      on {{ post.date | date: '%B %d, %Y' }}</p>
+      -->
+      Erstellt am
+      <!-- Whitespace added for readability -->
+      {% assign m = post.date | date: "%-m" %}
+      {{ post.date | date: "%-d." }}
+      {% case m %}
+        {% when '1' %}Januar
+        {% when '2' %}Februar
+        {% when '3' %}M&auml;rz
+        {% when '4' %}April
+        {% when '5' %}Mai
+        {% when '6' %}Juni
+        {% when '7' %}Juli
+        {% when '8' %}August
+        {% when '9' %}September
+        {% when '10' %}Oktober
+        {% when '11' %}November
+        {% when '12' %}Dezember
+      {% endcase %}
+      {{ post.date | date: "%Y" }}</p>
+      <!--
+      Erstellt am {{ post.date | date: '%d. %B %Y' }}</p>
+      -->
   </article>
 
   <hr>

@@ -23,16 +23,14 @@ layout: default
     </div>
   </header>
 
-  <!--
-  <div class="container">
+   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+      <h3 class="section-heading" >Neue Beiträge</h3><p>
 
         {{ content }}
-        -->
         <!-- Home Post List -->
-        <!--
-        {% for post in site.posts limit : 5 %}
+        {% for post in site.posts limit : 2 %}
 
           <article class="post-preview">
             <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
@@ -43,29 +41,50 @@ layout: default
                 <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
               {% endif %}
             </a>
-            <p class="post-meta">Posted by
+            <p class="post-meta">
+              <!--
+              Posted by
               {% if post.author %}
                 {{ post.author }}
               {% else %}
                 {{ site.author }}
               {% endif %}
-              on
-              {{ post.date | date: '%B %d, %Y' }}</p>
+              -->
+              Erstellt am
+              <!-- Whitespace added for readability -->
+              {% assign m = post.date | date: "%-m" %}
+              {{ post.date | date: "%-d." }}
+              {% case m %}
+                {% when '1' %}Januar
+                {% when '2' %}Februar
+                {% when '3' %}M&auml;rz
+                {% when '4' %}April
+                {% when '5' %}Mai
+                {% when '6' %}Juni
+                {% when '7' %}Juli
+                {% when '8' %}August
+                {% when '9' %}September
+                {% when '10' %}Oktober
+                {% when '11' %}November
+                {% when '12' %}Dezember
+              {% endcase %}
+              {{ post.date | date: "%Y" }}</p>
+              <!--
+              {{ post.date | date: '%d. %B %Y' }}
+              -->
           </article>
 
           <hr>
 
         {% endfor %}
-        -->
         <!-- Pager -->
-        <!--
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">Alle Beiträge &rarr;</a>
         </div>
       </div>
     </div>
   </div>
-  -->
+
 
 <div class="container">
   <div class="row">
@@ -105,12 +124,8 @@ layout: default
 
         <p>
           <img src="/img/wordcloud.png" alt="Wordcloud Themen">
-        </p>
-
-      <hr>  
-      <h3 class="section-heading" >Nächste Termine</h3><p>
-      Im Sommersemester 2018 findet der Kurs als Blockkurs am 26.5., 6.7. und 7.7.2018 jeweils von 9:00 - 17:30 Uhr statt. Die Räumlichkeiten werden per E-Mail bekannt gegeben. <b>Es sind noch Plätze frei.</b> Anmeldung über Moodle oder per E-Mail. 
-      </p>
+        </p> 
+      
 
     </div>
   </div>
